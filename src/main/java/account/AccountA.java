@@ -1,3 +1,5 @@
+package account;
+
 public class AccountA extends AccountComponent{
     private double openingBalance;
     private double increases; //TODO: is this useful?
@@ -11,5 +13,11 @@ public class AccountA extends AccountComponent{
         openingBalance += increases;
     }
 
+    public double getOpeningBalance(){
+        return openingBalance;
+    }
 
+    public double getIncreases(){
+        return increases;
+    }
 }

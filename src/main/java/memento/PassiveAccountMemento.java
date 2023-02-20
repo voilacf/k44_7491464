@@ -1,4 +1,10 @@
-public class PassiveAccountMemento extends AccountMemento{
+package memento;
+
+import account.AccountA;
+import account.AccountB;
+import account.AccountComponent;
+
+public class PassiveAccountMemento {
     private AccountB debit;
     private AccountA haveAccount;
 
@@ -7,7 +13,7 @@ public class PassiveAccountMemento extends AccountMemento{
         this.haveAccount = haveAccount;
     }
 
-    public AccountComponent getDebit(){
+    public AccountB getDebit(){
         return null;
     }
 
@@ -15,7 +21,7 @@ public class PassiveAccountMemento extends AccountMemento{
         this.debit = debit;
     }
 
-    public AccountComponent getHaveAccount(){
+    public AccountA getHaveAccount(){
         return null;
     }
 

@@ -1,4 +1,9 @@
-public class ActiveAccountMemento extends AccountMemento{
+package memento;
+
+import account.AccountA;
+import account.AccountB;
+
+public class ActiveAccountMemento{
     private AccountA debit;
     private AccountB haveAccount;
 
