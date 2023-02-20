@@ -1,4 +1,10 @@
-public class Administrator extends User{
+package user;
+
+import command.ICommand;
+import user.Role;
+import user.User;
+
+public class Administrator extends User {
     private ICommand command;
     private Role role = Role.ADMINISTRATOR;
     private String name;
@@ -6,7 +12,7 @@ public class Administrator extends User{
     public Administrator(String name, ICommand command){
         this.name = name;
         this.command = command;
-        System.out.println("An Administrator has been created.");
+        System.out.println("An user.Administrator has been created.");
     }
 
     public String getName(){

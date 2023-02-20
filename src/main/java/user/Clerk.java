@@ -1,4 +1,10 @@
-public class Clerk extends User{
+package user;
+
+import command.ICommand;
+import user.Role;
+import user.User;
+
+public class Clerk extends User {
     private ICommand command;
     private Role role = Role.CLERK;
     private String name;
@@ -6,7 +12,7 @@ public class Clerk extends User{
     public Clerk(String name, ICommand command){
         this.name = name;
         this.command = command;
-        System.out.println("An Clerk has been created.");
+        System.out.println("An user.Clerk has been created.");
     }
 
     public String getName(){

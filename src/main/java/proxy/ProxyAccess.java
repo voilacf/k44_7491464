@@ -1,4 +1,8 @@
-public class ProxyAccess implements IAccess{
+package proxy;
+
+import user.User;
+
+public class ProxyAccess implements IAccess {
     private User user;
     private RealAccess realAccess;
 
