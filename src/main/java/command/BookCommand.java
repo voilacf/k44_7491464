@@ -1,4 +1,8 @@
-public class BookCommand implements ICommand{
+package command;
+
+import command.ICommand;
+
+public class BookCommand implements ICommand {
     private double debit;
     private double credit;
     private double amount;

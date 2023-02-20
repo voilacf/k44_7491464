@@ -1,4 +1,8 @@
-public class LoginCommand implements ICommand{
+package command;
+
+import command.ICommand;
+
+public class LoginCommand implements ICommand {
     private String username;
     private String password;
 
