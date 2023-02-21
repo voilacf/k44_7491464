@@ -1,31 +1,30 @@
 package memento;
 
-import account.AccountA;
-import account.AccountB;
-import account.AccountComponent;
+import account.Credit;
+import account.Debit;
 
 public class PassiveAccountMemento {
-    private AccountB debit;
-    private AccountA haveAccount;
+    private Debit debit;
+    private Credit haveAccount;
 
-    public PassiveAccountMemento(AccountA haveAccount, AccountB debit){
+    public PassiveAccountMemento(Credit haveAccount, Debit debit){
         this.debit = debit;
         this.haveAccount = haveAccount;
     }
 
-    public AccountB getDebit(){
+    public Debit getDebit(){
         return null;
     }
 
-    public void setDebit(AccountB debit) {
+    public void setDebit(Debit debit) {
         this.debit = debit;
     }
 
-    public AccountA getHaveAccount(){
+    public Credit getHaveAccount(){
         return null;
     }
 
-    public void setHaveAccount(AccountA haveAccount) {
+    public void setHaveAccount(Credit haveAccount) {
         this.haveAccount = haveAccount;
     }
 }

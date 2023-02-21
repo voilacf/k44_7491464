@@ -1,7 +1,10 @@
 package account;
 
 public abstract interface IAccount {
-    //AccountMemento save();
-    //void restore(AccountMemento memento);
-    double[] getContent();
+    //double[] getContent();
+    DebitCreditType getDebitCreditType(IAccountComponent accountComponent);
+    AccountType getAccountType();
+    IAccountComponent getSoll();
+    IAccountComponent getHaben();
+    String getName();
 }

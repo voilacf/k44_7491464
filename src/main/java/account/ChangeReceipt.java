@@ -19,7 +19,7 @@ public class ChangeReceipt {
 
     public void printChangeReceipt(){
         System.out.println("Receipt " + id);
-        System.out.println("haveAccount : [" + haveAccount.getContent() + "] state: [" + debitAccount.getContent() + "]");
+        //System.out.println("haveAccount : [" + haveAccount.getContent() + "] state: [" + debitAccount.getContent() + "]");
         System.out.println("Date and Time " + timeStamp);
     }
 }
