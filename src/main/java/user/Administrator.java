@@ -1,6 +1,10 @@
 package user;
 
+import account.AccountType;
+import command.CreateAccountCommand;
 import command.ICommand;
+import command.LoginCommand;
+import command.ViewChangeLogCommand;
 import user.Role;
 import user.User;
 
@@ -9,10 +13,9 @@ public class Administrator extends User {
     private Role role = Role.ADMINISTRATOR;
     private String name;
 
-    public Administrator(String name, ICommand command){
+    public Administrator(String name){
         this.name = name;
-        this.command = command;
-        System.out.println("An user.Administrator has been created.");
+        System.out.println("An Administrator has been created.\n");
     }
 
     public String getName(){
@@ -23,5 +26,19 @@ public class Administrator extends User {
         this.name = name;
     }
 
-    //TODO: done???
+    //TODO: done?
+    public void createAccount(String name, AccountType type, double initialBalance){
+        command = new CreateAccountCommand(name, type, initialBalance);
+        command.execute();
+    }
+
+    public void login(String name, String password){
+        command = new LoginCommand(name,password);
+        command.execute();
+    }
+
+    public void viewChangeLog(){
+        command = new ViewChangeLogCommand();
+        command.execute();
+    }
 }
