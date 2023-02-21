@@ -10,7 +10,7 @@ public class Debit implements IAccountComponent{
         reductions = new ArrayList<>();
     }
 
-    public ArrayList<Double> getReductions(){
+    public ArrayList<Double> getContent(){
         return reductions;
     }
 
@@ -24,10 +24,12 @@ public class Debit implements IAccountComponent{
 
     public void add(double amount){
         reductions.add(amount);
-        System.out.println("The " + type.toString().toLowerCase() + " has been reduced by " + amount);
+        //System.out.println("The " + type.toString().toLowerCase() + " has been reduced by " + amount);
     }
 
-
+    public double getOpeningBalance(){
+        return 0;
+    }
 
     /*public void reduce(double reductions){
         this.reductions += reductions;

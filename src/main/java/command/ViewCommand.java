@@ -8,19 +8,50 @@ import java.util.ArrayList;
 public class ViewCommand implements ICommand {
     private IAccount account;
     private ArrayList<Double> test;
+    private ArrayList<Double> debit;
+    private ArrayList<Double> credit;
 
     public ViewCommand(IAccount account){
         this.account = account;
+        debit = new ArrayList<>();
+        credit = new ArrayList<>();
     }
 
-    //TODO: Stand Konto und Transaktionen
     public void execute(){
+        int size = 0;
         if(account.getAccountType() == AccountType.ACTIVE){
-            System.out.println("Current balance: " + account.getHaben());
-        }else{
-            System.out.println("Current balance: " + account.getSoll());
+            System.out.println("Account " + account.getName() + " initial balance: [" + account.getSoll().getOpeningBalance() + "]");
+            System.out.println("Debit       ||     Credit");
+            System.out.println("——————————————————————————");
+            credit = account.getSoll().getContent();
+            debit = account.getHaben().getContent();
+        } else{
+            System.out.println("Account " + account.getName() + " initial balance: [" + account.getHaben().getOpeningBalance() + "]");
+            System.out.println("Debit       ||     Credit");
+            System.out.println("——————————————————————————");
+            debit = account.getSoll().getContent();
+            credit = account.getHaben().getContent();
         }
-        //TODO: Transaktionen mit ausgeben
+        //TODO: DONE
+
+        if(debit.size()<credit.size()){
+            size = credit.size();
+            int extranulls = size - debit.size();
+            for (int i = 0; i < extranulls; i++) {
+                debit.add(0.0);
+            }
+        }else {
+            size = debit.size();
+            int extranulls = size - credit.size();
+            for (int i = 0; i < extranulls; i++) {
+                credit.add(0.0);
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.println(debit.get(i) + "      ||     " + credit.get(i));
+        }
+        System.out.println("——————————————————————————");
+        System.out.println(account.getSoll().getBalance() + "      ||   " + account.getHaben().getBalance() + "\n");
     }
 
 }

@@ -18,7 +18,7 @@ public class Credit implements IAccountComponent {
 
     public void add(double amount){
         increases.add(amount);
-        System.out.println("The " + type.toString().toLowerCase() + " has been increased by " + amount);
+        //System.out.println("The " + type.toString().toLowerCase() + " has been increased by " + amount);
     }
 
     public double getBalance(){
@@ -29,11 +29,9 @@ public class Credit implements IAccountComponent {
         return balance;
     }
 
-
-
-    /*public void increase(double increases){
-        this.increases.add(increases);
-    }*/
+    public ArrayList<Double> getContent() {
+        return increases;
+    }
 
     public void setType(DebitCreditType type){
         this.type = type;
