@@ -1,19 +1,26 @@
 package command;
 
+import account.AccountType;
 import account.IAccount;
+
+import java.util.ArrayList;
 
 public class ViewCommand implements ICommand {
     private IAccount account;
+    private ArrayList<Double> test;
 
     public ViewCommand(IAccount account){
         this.account = account;
     }
 
-    //TODO: good like that?
+    //TODO: Stand Konto und Transaktionen
     public void execute(){
-        double[] content = account.getContent();
-        for(int i = 0; i < 2; i++){
-            System.out.println(content[i]);
+        if(account.getAccountType() == AccountType.ACTIVE){
+            System.out.println("Current balance: " + account.getHaben());
+        }else{
+            System.out.println("Current balance: " + account.getSoll());
         }
+        //TODO: Transaktionen mit ausgeben
     }
+
 }
