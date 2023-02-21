@@ -5,8 +5,6 @@ import command.CreateAccountCommand;
 import command.ICommand;
 import command.LoginCommand;
 import command.ViewChangeLogCommand;
-import user.Role;
-import user.User;
 
 public class Administrator extends User {
     private ICommand command;

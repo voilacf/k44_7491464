@@ -1,8 +1,10 @@
 package user;
 
+import account.IAccount;
+import command.BookCommand;
 import command.ICommand;
-import user.Role;
-import user.User;
+import command.UndoCommand;
+import command.ViewCommand;
 
 public class Clerk extends User {
     private ICommand command;
@@ -23,5 +25,19 @@ public class Clerk extends User {
         this.name = name;
     }
 
-    //TODO:done??
+    //TODO: book, undo, view
+    public void book(IAccount sourceAccount, IAccount destinationAccount, double amount){
+        command = new BookCommand(sourceAccount, destinationAccount, amount);
+        command.execute();
+    }
+
+    public void undoLastAction(){
+        command = new UndoCommand();
+        command.execute();
+    }
+
+    public void viewAccount(IAccount account){
+        command = new ViewCommand(account);
+        command.execute();
+    }
 }

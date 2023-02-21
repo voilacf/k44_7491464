@@ -1,8 +1,8 @@
 package user;
 
+import account.IAccount;
 import command.ICommand;
-import user.Role;
-import user.User;
+import command.ViewCommand;
 
 public class Viewer extends User {
     private ICommand command;
@@ -25,4 +25,8 @@ public class Viewer extends User {
     }
 
     //TODO: done?
+    public void viewAccount(IAccount account){
+        command = new ViewCommand(account);
+        command.execute();
+    }
 }
