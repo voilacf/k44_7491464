@@ -9,6 +9,10 @@ public class RealAccess implements IAccess {
         this.user = user;
     }
 
+    public void login(String name, String password){
+
+    }
+
     public void grant(){
 
     }

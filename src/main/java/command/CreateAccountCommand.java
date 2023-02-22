@@ -1,6 +1,7 @@
 package command;
 
 import account.*;
+import user.Administrator;
 
 public class CreateAccountCommand implements ICommand {
     //TODO: rename class in diagram.vpp
@@ -15,19 +16,20 @@ public class CreateAccountCommand implements ICommand {
         this.initialBalance = initialBalance;
     }
 
+    public IAccount getAccount(){
+        return account;
+    }
+
+    //TODO: fix account, viewer, clerk and admin issue
     public void execute(){
         if(AccountType.ACTIVE == type){
             account = new ActiveAccount(name,initialBalance);
-            System.out.println("A new " + type.toString().toLowerCase() + " Account has been created");
-            System.out.println("Name: [" + name + "] initial balance: [" + initialBalance + "]");
         }else{
             account = new PassiveAccount(name, initialBalance);
-            System.out.println("A new " + type.toString().toLowerCase() + " Account has been created");
-            System.out.println("Name: [" + name + "] initial balance: [" + initialBalance + "]\n");
         }
+        System.out.println("A new " + type.toString().toLowerCase() + " Account has been created");
+        System.out.println("Name: [" + name + "] initial balance: [" + initialBalance + "]\n");
+        Administrator admin = new Administrator("admin");
+        admin.addToAccountList(account);
     }
-
-    //public IAccount getAccount(){
-       // return account;
-    //}
 }

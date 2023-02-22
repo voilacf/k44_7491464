@@ -1,5 +1,6 @@
 package proxy;
 
+import command.ICommand;
 import user.User;
 
 public class ProxyAccess implements IAccess {
@@ -9,6 +10,10 @@ public class ProxyAccess implements IAccess {
     public ProxyAccess(User user, RealAccess realaccess){
         this.user = user;
         this.realAccess = realAccess;
+    }
+
+    public void login(String name, String password){
+
     }
 
     public void grant(){

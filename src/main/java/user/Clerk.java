@@ -11,9 +11,8 @@ public class Clerk extends User {
     private Role role = Role.CLERK;
     private String name;
 
-    public Clerk(String name, ICommand command){
+    public Clerk(String name){
         this.name = name;
-        this.command = command;
         System.out.println("An user.Clerk has been created.");
     }
 

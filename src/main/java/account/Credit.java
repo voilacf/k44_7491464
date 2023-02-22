@@ -3,7 +3,7 @@ package account;
 import java.util.ArrayList;
 
 public class Credit implements IAccountComponent {
-    private final double openingBalance;
+    private double openingBalance; //TODO: final?
     private ArrayList<Double> increases; //TODO: is this useful?
     private DebitCreditType type;
 

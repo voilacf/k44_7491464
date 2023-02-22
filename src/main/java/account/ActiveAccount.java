@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class ActiveAccount implements IAccount {
     String name;
     private final AccountType accountType = AccountType.ACTIVE;
-    private Credit soll; //TODO: HABEN
-    private Debit haben; //TODO: SOLL
+    private Credit soll; //TODO: Soll
+    private Debit haben; //TODO: haben
     private ArrayList<Double> transactions;
 
     public ActiveAccount(String name, double amount){

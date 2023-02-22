@@ -9,10 +9,10 @@ public class Viewer extends User {
     private Role role = Role.VIEWER;
     private String name;
     private String password; //TODO: check, does this really belong here?
+    private IAccount account;
 
-    public Viewer(String name, ICommand command){
+    public Viewer(String name, IAccount account){
         this.name = name;
-        this.command = command;
         System.out.println("An user.Viewer has been created.");
     }
 
@@ -25,7 +25,7 @@ public class Viewer extends User {
     }
 
     //TODO: done?
-    public void viewAccount(IAccount account){
+    public void viewAccount(){
         command = new ViewCommand(account);
         command.execute();
     }

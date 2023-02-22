@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class ViewCommand implements ICommand {
     private IAccount account;
-    private ArrayList<Double> test;
     private ArrayList<Double> debit;
     private ArrayList<Double> credit;
 
@@ -23,8 +22,8 @@ public class ViewCommand implements ICommand {
             System.out.println("Account " + account.getName() + " initial balance: [" + account.getSoll().getOpeningBalance() + "]");
             System.out.println("Debit       ||     Credit");
             System.out.println("——————————————————————————");
-            credit = account.getSoll().getContent();
-            debit = account.getHaben().getContent();
+            credit = account.getHaben().getContent();
+            debit = account.getSoll().getContent();
         } else{
             System.out.println("Account " + account.getName() + " initial balance: [" + account.getHaben().getOpeningBalance() + "]");
             System.out.println("Debit       ||     Credit");
@@ -32,8 +31,7 @@ public class ViewCommand implements ICommand {
             debit = account.getSoll().getContent();
             credit = account.getHaben().getContent();
         }
-        //TODO: DONE
-
+        //TODO: DONE?
         if(debit.size()<credit.size()){
             size = credit.size();
             int extranulls = size - debit.size();
@@ -51,7 +49,14 @@ public class ViewCommand implements ICommand {
             System.out.println(debit.get(i) + "      ||     " + credit.get(i));
         }
         System.out.println("——————————————————————————");
-        System.out.println(account.getSoll().getBalance() + "      ||   " + account.getHaben().getBalance() + "\n");
+        if(account.getAccountType() == AccountType.ACTIVE) {
+            System.out.println(account.getSoll().getBalance() + "      ||   " + account.getHaben().getBalance());
+            System.out.println("New Balance: [" + (account.getSoll().getBalance()-account.getHaben().getBalance()) + "]\n");
+        }else{
+            System.out.println(account.getSoll().getBalance() + "      ||   " + account.getHaben().getBalance());
+            System.out.println("New Balance: [" + (account.getHaben().getBalance()-account.getSoll().getBalance()) + "]\n");
+        }
+
     }
 
 }

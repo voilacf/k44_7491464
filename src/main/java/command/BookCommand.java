@@ -29,43 +29,31 @@ public class BookCommand implements ICommand {
 
     //TODO: make a booking --> DEBIT TO CREDIT SOLL zu HABEN
     public void execute() {
-        debit.getSoll().add(amount);
-        credit.getHaben().add(amount); //sollte so passen
-    }
-    }
-        /*BookingMode mode;
         if(debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.ACTIVE){
             //ACTIVE ACTIVE -> credit to debit
-            mode = BookingMode.AA;
+            debit.getHaben().add(amount);
+            credit.getSoll().add(amount);
         }else if(debit.getAccountType() == AccountType.PASSIVE && credit.getAccountType() == AccountType.PASSIVE){
             //PASSIVE PASSIVE -> debit to credit
-            mode = BookingMode.PP;
+            debit.getSoll().add(amount);
+            credit.getHaben().add(amount);
         }else if(debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.PASSIVE){
-            mode = BookingMode.AP;
-        }else{
-            mode = BookingMode.PA;
+            debit.getHaben().add(amount);
+            credit.getHaben().add(amount);
+        }else if(debit.getAccountType() == AccountType.PASSIVE && credit.getAccountType() == AccountType.ACTIVE){
+            debit.getSoll().add(amount);
+            credit.getSoll().add(amount);
         }
-        switch (mode){
-            case AA: //credit to debit
-                debit.getSoll().add(amount);
-                credit.getHaben().add(amount); //sollte so passen
-                break;
-            case PP: //debit to credit
-                debit.getSoll().add(amount);
-                credit.getHaben().add(amount);
-                break;
-            case AP:
-                break;
-            case PA:
-                break;
-            default:
-                throw new RuntimeException("Error");
+        else{
+            throw new RuntimeException("Error");
         }
+    }
         //TODO: Transaktionen sollen mit angezeigt werden
 
     private IAccount[] book(IAccount debit, IAccount credit){
         debit.getSoll().add(amount);
         credit.getHaben().add(amount);
         return null;
-    }*/
+    }
+}
 
