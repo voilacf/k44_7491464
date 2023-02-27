@@ -38,7 +38,7 @@ public class ViewCommand implements ICommand {
             for (int i = 0; i < extranulls; i++) {
                 debit.add(0.0);
             }
-        }else {
+        } else {
             size = debit.size();
             int extranulls = size - credit.size();
             for (int i = 0; i < extranulls; i++) {
@@ -52,7 +52,7 @@ public class ViewCommand implements ICommand {
         if(account.getAccountType() == AccountType.ACTIVE) {
             System.out.println(account.getSoll().getBalance() + "      ||   " + account.getHaben().getBalance());
             System.out.println("New Balance: [" + (account.getSoll().getBalance()-account.getHaben().getBalance()) + "]\n");
-        }else{
+        } else{
             System.out.println(account.getSoll().getBalance() + "      ||   " + account.getHaben().getBalance());
             System.out.println("New Balance: [" + (account.getHaben().getBalance()-account.getSoll().getBalance()) + "]\n");
         }

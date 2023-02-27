@@ -21,6 +21,7 @@ public class CreateAccountCommand implements ICommand {
     }
 
     //TODO: fix account, viewer, clerk and admin issue
+    //TODO: save account -> memento
     public void execute(){
         if(AccountType.ACTIVE == type){
             account = new ActiveAccount(name,initialBalance);

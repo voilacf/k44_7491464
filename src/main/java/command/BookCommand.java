@@ -48,7 +48,7 @@ public class BookCommand implements ICommand {
             throw new RuntimeException("Error");
         }
     }
-        //TODO: Transaktionen sollen mit angezeigt werden
+        //TODO: save change -> memento
 
     private IAccount[] book(IAccount debit, IAccount credit){
         debit.getSoll().add(amount);

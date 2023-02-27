@@ -6,10 +6,13 @@ import command.ICommand;
 import command.UndoCommand;
 import command.ViewCommand;
 
+import java.util.HashMap;
+
 public class Clerk extends User {
     private ICommand command;
     private Role role = Role.CLERK;
     private String name;
+    private HashMap<String,IAccount> accountList;
 
     public Clerk(String name){
         this.name = name;

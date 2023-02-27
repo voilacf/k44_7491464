@@ -1,13 +1,7 @@
-import account.AccountType;
-import account.ActiveAccount;
 import account.IAccount;
 import account.PassiveAccount;
-import command.ICommand;
-import command.ViewCommand;
 import user.Administrator;
 import user.Clerk;
-
-import java.util.ArrayList;
 
 public class Application {
 
@@ -19,9 +13,11 @@ public class Application {
         System.out.println(i);
         Clerk clerk = new Clerk("clerk");
         clerk.book(passive,active,200);
+        clerk.book(passive,active,400);
+        clerk.book(active,passive,300);
+        clerk.book(active,passive,1000);
         clerk.viewAccount(passive);
         clerk.viewAccount(active);
-
     }
 
     public void init(){

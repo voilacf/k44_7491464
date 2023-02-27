@@ -1,13 +1,18 @@
 package memento;
 
+import account.ActiveAccount;
 import account.Credit;
 import account.Debit;
+import account.IAccount;
 
 public class ActiveAccountMemento{
+    private ActiveAccount account;
     private Credit debit;
     private Debit haveAccount;
 
-    public ActiveAccountMemento(Credit debit, Debit haveAccount){
+    public ActiveAccountMemento(String name, Credit debit, Debit haveAccount, double initialAmount){
+        account = new ActiveAccount(name, initialAmount);
+        //account.set
         this.debit = debit;
         this.haveAccount = haveAccount;
     }
