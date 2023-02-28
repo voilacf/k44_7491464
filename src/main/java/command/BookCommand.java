@@ -14,13 +14,6 @@ public class BookCommand implements ICommand {
     //SOLL und HABEN -> Aktiv umgekehrt
     //vom ersten zum zweiten
     public BookCommand(IAccount debit, IAccount credit, double amount){
-        /*if(debit.getAccountType() == AccountType.ACTIVE){
-            debitAccountComponent = debit.getDebit();
-            creditAccountComponent = credit.getCredit();
-        }else{
-            debitAccountComponent = credit.getDebit();
-            creditAccountComponent = debit.getCredit();
-        }*/
         this.debit = debit;
         this.credit = credit;
         this.amount = amount;
@@ -48,7 +41,7 @@ public class BookCommand implements ICommand {
             throw new RuntimeException("Error");
         }
     }
-        //TODO: save change -> memento
+        //TODO: save changes -> load to memento
 
     private IAccount[] book(IAccount debit, IAccount credit){
         debit.getSoll().add(amount);
