@@ -1,15 +1,13 @@
 package command;
 
-import account.AccountType;
-import account.IAccount;
-import account.IAccountComponent;
+import account.*;
+import memento.MementoCareTaker;
+import user.Clerk;
 
 public class BookCommand implements ICommand {
     private IAccount debit;
     private IAccount credit;
     private double amount;
-    private IAccountComponent debitAccountComponent;
-    private IAccountComponent creditAccountComponent;
 
     //SOLL und HABEN -> Aktiv umgekehrt
     //vom ersten zum zweiten
@@ -40,13 +38,14 @@ public class BookCommand implements ICommand {
         else{
             throw new RuntimeException("Error");
         }
-    }
-        //TODO: save changes -> load to memento
 
-    private IAccount[] book(IAccount debit, IAccount credit){
+        FinancialAccounting.addReceipt(new ChangeReceipt(debit, credit, amount, ActionType.BOOKING));
+    } //TODO: save changes -> load to memento
+
+    /*private IAccount[] book(IAccount debit, IAccount credit){
         debit.getSoll().add(amount);
         credit.getHaben().add(amount);
         return null;
-    }
+    }*/
 }
 

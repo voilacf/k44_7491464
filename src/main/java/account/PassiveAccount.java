@@ -1,15 +1,12 @@
 package account;
 
-import memento.PassiveAccountMemento;
-
-import java.util.ArrayList;
+import memento.AccountMemento;
 
 public class PassiveAccount implements IAccount {
     String name;
     private final AccountType accountType = AccountType.PASSIVE;
     private Debit soll; //TODO: SOLL
     private Credit haben; //TODO: HABEN
-    private ArrayList<Double> transactions;
 
     public PassiveAccount(String name, double initialBalance){
         this.name = name;
@@ -19,22 +16,17 @@ public class PassiveAccount implements IAccount {
         soll.setType(DebitCreditType.DEBIT);
     }
 
-    public PassiveAccountMemento save(){
-        return null;
+    public AccountMemento save(){
+        return new AccountMemento(name,haben.clone(),soll.clone());
     }
 
-    public void restore(PassiveAccountMemento memento){
+    @Override
+    public void restore(AccountMemento memento){
+        this.name = memento.getName();
         this.soll = memento.getDebit();
-        this.haben = memento.getHaveAccount();
+        this.haben = memento.getCredit();
     }
 
-    //add parameter enum, to choose specific array content
-    /*public double[] getContent(){
-        double[] content = new double[2];
-        content[0] = soll.getReductions();
-        content[1] = haben.getOpeningBalance();
-        return content;
-    }*/
 
     //TODO: change to credit debit
     public Debit getSoll(){

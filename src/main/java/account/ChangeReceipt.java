@@ -13,8 +13,8 @@ public class ChangeReceipt {
     private double amount;
     private ActionType type;
 
-    public ChangeReceipt(int id, IAccount debitAccount, IAccount haveAccount, double amount, ActionType type){
-        this.id = id;
+    public ChangeReceipt(IAccount debitAccount, IAccount haveAccount, double amount, ActionType type){
+        this.id = ++idCounter;
         this.timeStamp = LocalDateTime.now();
         this.debitAccount = debitAccount;
         this.haveAccount = haveAccount;
@@ -28,7 +28,7 @@ public class ChangeReceipt {
         command.execute();
         command = new ViewCommand(haveAccount);
         command.execute();
-        //System.out.println("haveAccount : [" + haveAccount.getContent() + "] state: [" + debitAccount.getContent() + "]");
         System.out.println("Date and Time " + timeStamp);
+        System.out.println("----------------------------------------\n");
     }
 }

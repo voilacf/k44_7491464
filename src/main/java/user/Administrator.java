@@ -10,14 +10,9 @@ import command.ViewChangeLogCommand;
 import java.util.HashMap;
 
 public class Administrator extends User {
-    private ICommand command;
-    private Role role = Role.ADMINISTRATOR;
-    private String name;
-    private HashMap<String, IAccount>  accountList;
-
-    public Administrator(String name){
-        this.name = name;
-        System.out.println("An Administrator has been created.\n");
+    public Administrator(String name, String encryptedPassword){
+        super(name, encryptedPassword, Role.ADMINISTRATOR);
+        System.out.println("An viewer has been created.");
     }
 
     public String getName(){

@@ -1,22 +1,22 @@
 package memento;
 
 public class MementoCareTaker {
-    private PassiveAccountMemento mementoPassive;
-    private ActiveAccountMemento mementoActive;
+    private static AccountMemento mementoPassiveDest;
+    private static AccountMemento mementoActiveSrc;
 
-    public PassiveAccountMemento getMementoPassive(){
-        return mementoPassive;
+    public static AccountMemento getMementoPassiveDest(){
+        return mementoPassiveDest;
     }
 
-    public void setMementoPassive(PassiveAccountMemento memento){
-        mementoPassive = memento;
+    public static void setMementoPassiveDest(AccountMemento memento){
+        mementoPassiveDest = memento;
     }
 
-    public ActiveAccountMemento getMementoActive(){
-        return mementoActive;
+    public static AccountMemento getMementoActiveSrc(){
+        return mementoActiveSrc;
     }
 
-    public void setMementoActive(ActiveAccountMemento memento){
-        mementoActive = memento;
+    public static void setMementoActiveSrc(AccountMemento memento){
+        mementoActiveSrc = memento;
     }
 }

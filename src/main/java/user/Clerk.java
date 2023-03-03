@@ -1,45 +1,33 @@
 package user;
 
 import account.IAccount;
-import command.BookCommand;
-import command.ICommand;
-import command.UndoCommand;
-import command.ViewCommand;
-
-import java.util.HashMap;
 
 public class Clerk extends User {
-    private ICommand command;
-    private Role role = Role.CLERK;
-    private String name;
-    private HashMap<String,IAccount> accountList;
-
-    public Clerk(String name){
-        this.name = name;
-        System.out.println("An user.Clerk has been created.");
+    public Clerk(String name, String encryptedPassword){
+        super(name, encryptedPassword, Role.CLERK);
+        System.out.println("An Clerk has been created.");
     }
 
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-    //TODO: book, undo, view
+    /*//TODO: book √, undo X, view √
     public void book(IAccount sourceAccount, IAccount destinationAccount, double amount){
-        command = new BookCommand(sourceAccount, destinationAccount, amount);
+        mementoCareTaker.setMementoActiveSrc(sourceAccount.save());
+        mementoCareTaker.setMementoPassiveDest(destinationAccount.save());
+        System.out.println("\n----------memento has been set----------\n");
+        this.sourceAccount = sourceAccount;
+        this.destinationAccount = destinationAccount;
+        command = new BookCommand(sourceAccount, destinationAccount, amount, this);
         command.execute();
+        System.out.println("\n----------booking has been executed----------\n");
     }
 
     public void undoLastAction(){
-        command = new UndoCommand();
+        command = new UndoCommand(sourceAccount, destinationAccount, mementoCareTaker, this);
         command.execute();
+        System.out.println("\n----------last action has been reset----------\n");
     }
 
     public void viewAccount(IAccount account){
         command = new ViewCommand(account);
         command.execute();
-    }
+    }*/
 }

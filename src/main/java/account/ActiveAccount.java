@@ -1,15 +1,13 @@
 package account;
 
-import memento.ActiveAccountMemento;
-
-import java.util.ArrayList;
+import memento.AccountMemento;
 
 public class ActiveAccount implements IAccount {
     String name;
     private final AccountType accountType = AccountType.ACTIVE;
     private Credit soll; //TODO: Soll
     private Debit haben; //TODO: haben
-    private ArrayList<Double> transactions;
+    //private ArrayList<Double> transactions;
 
     public ActiveAccount(String name, double amount){
         this.name = name;
@@ -19,21 +17,17 @@ public class ActiveAccount implements IAccount {
         haben.setType(DebitCreditType.DEBIT);
     }
 
-    public ActiveAccountMemento save(){
-        return null;
+    @Override
+    public AccountMemento save(){
+        return new AccountMemento(name, soll.clone(), haben.clone());
     }
 
-    public void restore(ActiveAccountMemento memento){
-        soll = memento.getDebit();
-        haben = memento.getHaveAccount();
+    @Override
+    public void restore(AccountMemento memento){
+        this.name = memento.getName();
+        this.soll = memento.getCredit();
+        this.haben = memento.getDebit();
     }
-
-    /*public double[] getContent(){
-        double[] content = new double[2];
-        content[0] = soll.getOpeningBalance();
-        content[1] = haben.getReductions();
-        return content;
-    }*/
 
     public Credit getSoll(){
         return soll;

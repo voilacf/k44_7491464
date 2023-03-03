@@ -1,6 +1,8 @@
 package proxy;
 
-import user.User;
+import account.*;
+import command.*;
+import memento.MementoCareTaker;
 
 public class RealAccess implements IAccess {
     private User user;
