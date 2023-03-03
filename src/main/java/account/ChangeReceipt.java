@@ -7,7 +7,8 @@ import java.time.LocalDateTime;
 
 public class ChangeReceipt {
     private int id;
-    private LocalDateTime timeStamp; //TODO: check java libs for date related stuff
+    private static int idCounter;
+    private LocalDateTime timeStamp;
     private IAccount debitAccount;
     private IAccount haveAccount;
     private double amount;
@@ -20,10 +21,10 @@ public class ChangeReceipt {
         this.haveAccount = haveAccount;
         this.amount = amount;
         this.type = type;
-    } //TODO: done
+    }
 
     public void printChangeReceipt(){
-        System.out.println("Receipt " + id);
+        System.out.println("-------------- Receipt " + id + " ---------------");
         ICommand command = new ViewCommand(debitAccount);
         command.execute();
         command = new ViewCommand(haveAccount);

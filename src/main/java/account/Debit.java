@@ -45,4 +45,10 @@ public class Debit implements IAccountComponent{
         this.type = type;
     }
 
+    public Debit clone(){
+        Debit clone = new Debit();
+        clone.reductions = (ArrayList<Double>) reductions.clone();
+        clone.type = type;
+        return clone;
+    }
 }

@@ -28,8 +28,8 @@ public class ViewCommand implements ICommand {
             System.out.println("Account " + account.getName() + " initial balance: [" + account.getHaben().getOpeningBalance() + "]");
             System.out.println("Debit       ||     Credit");
             System.out.println("——————————————————————————");
-            debit = account.getSoll().getContent();
             credit = account.getHaben().getContent();
+            debit = account.getSoll().getContent();
         }
         //TODO: DONE?
         if(debit.size()<credit.size()){

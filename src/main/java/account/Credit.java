@@ -40,4 +40,13 @@ public class Credit implements IAccountComponent {
     public DebitCreditType getAccountComponentType(){
         return type;
     }
+
+    public Credit clone(){
+        Credit clone = new Credit(openingBalance);
+        clone.setType(type);
+        for (int i = 0; i < increases.size(); i++) {
+            clone.add(increases.get(i));
+        }
+        return clone;
+    }
 }

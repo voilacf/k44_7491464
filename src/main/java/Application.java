@@ -42,7 +42,7 @@ public class Application {
         proxy.viewChangeLog();
     }
 
-    public void init(){
+    public void init() {
 
     }
 }

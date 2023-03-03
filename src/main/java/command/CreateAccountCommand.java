@@ -30,7 +30,7 @@ public class CreateAccountCommand implements ICommand {
         }
         System.out.println("A new " + type.toString().toLowerCase() + " Account has been created");
         System.out.println("Name: [" + name + "] initial balance: [" + initialBalance + "]\n");
-        Administrator admin = new Administrator("admin");
-        admin.addToAccountList(account);
+
+        FinancialAccounting.addAccount(account);
     }
 }
