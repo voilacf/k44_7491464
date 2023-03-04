@@ -1,6 +1,7 @@
 package proxy;
 
-import account.*;
+import account.AccountType;
+import account.IAccount;
 import command.*;
 import memento.MementoCareTaker;
 

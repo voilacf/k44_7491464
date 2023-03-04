@@ -1,31 +1,30 @@
 package command;
 
 import account.*;
-import user.Administrator;
 
 public class CreateAccountCommand implements ICommand {
     //TODO: rename class in diagram.vpp
-    private String name;
-    private AccountType type;
-    private double initialBalance;
+    private final String name;
+    private final AccountType type;
+    private final double initialBalance;
     private IAccount account;
 
-    public CreateAccountCommand(String name, AccountType type, double initialBalance){
+    public CreateAccountCommand(String name, AccountType type, double initialBalance) {
         this.name = name;
         this.type = type;
         this.initialBalance = initialBalance;
     }
 
-    public IAccount getAccount(){
+    public IAccount getAccount() {
         return account;
     }
 
     //TODO: fix account, viewer, clerk and admin issue
     //TODO: save account -> mement
-    public void execute(){
-        if(AccountType.ACTIVE == type){
-            account = new ActiveAccount(name,initialBalance);
-        }else{
+    public void execute() {
+        if (AccountType.ACTIVE == type) {
+            account = new ActiveAccount(name, initialBalance);
+        } else {
             account = new PassiveAccount(name, initialBalance);
         }
         System.out.println("A new " + type.toString().toLowerCase() + " Account has been created");

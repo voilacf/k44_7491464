@@ -1,4 +1,6 @@
-import account.*;
+import account.AccountType;
+import account.FinancialAccounting;
+import account.IAccount;
 import proxy.ProxyAccess;
 import proxy.RealAccess;
 import user.Administrator;
@@ -33,7 +35,7 @@ public class Application {
 
         /*double i = active1.getSoll().getOpeningBalance();
         System.out.println(i);*/
-        proxy.login("TestViewer","3269544");
+        proxy.login("TestViewer", "3269544");
         proxy.view(passive1);
         proxy.view(passive2);
         proxy.view(passive3);
@@ -75,7 +77,7 @@ public class Application {
         proxy.book(active2, active1, 25.0);
         proxy.undo();
 
-        proxy.login("TestViewer","3269544");
+        proxy.login("TestViewer", "3269544");
         proxy.view(active1);
         proxy.view(active2);
         proxy.view(active3);

@@ -2,19 +2,19 @@ package account;
 
 import java.util.ArrayList;
 
-public class Debit implements IAccountComponent{
+public class Debit implements IAccountComponent {
     private ArrayList<Double> reductions;
     private DebitCreditType type;
 
-    public Debit(){
+    public Debit() {
         reductions = new ArrayList<>();
     }
 
-    public ArrayList<Double> getContent(){
+    public ArrayList<Double> getContent() {
         return reductions;
     }
 
-    public double getBalance(){
+    public double getBalance() {
         double sum = 0;
         for (int i = 0; i < reductions.size(); i++) {
             sum += reductions.get(i);
@@ -22,12 +22,12 @@ public class Debit implements IAccountComponent{
         return sum;
     }
 
-    public void add(double amount){
+    public void add(double amount) {
         reductions.add(amount);
         //System.out.println("The " + type.toString().toLowerCase() + " has been reduced by " + amount);
     }
 
-    public double getOpeningBalance(){
+    public double getOpeningBalance() {
         return 0;
     }
 
@@ -36,16 +36,15 @@ public class Debit implements IAccountComponent{
     }*/
 
 
-
-    public DebitCreditType getAccountComponentType(){
+    public DebitCreditType getAccountComponentType() {
         return type;
     }
 
-    public void setType(DebitCreditType type){
+    public void setType(DebitCreditType type) {
         this.type = type;
     }
 
-    public Debit clone(){
+    public Debit clone() {
         Debit clone = new Debit();
         clone.reductions = (ArrayList<Double>) reductions.clone();
         clone.type = type;

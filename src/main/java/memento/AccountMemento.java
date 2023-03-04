@@ -1,6 +1,5 @@
 package memento;
 
-import account.AccountType;
 import account.Credit;
 import account.Debit;
 
@@ -15,15 +14,15 @@ public class AccountMemento {
         this.debit = debit;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public Credit getCredit(){
+    public Credit getCredit() {
         return credit;
     }
 
-    public Debit getDebit(){
+    public Debit getDebit() {
         return debit;
     }
 }

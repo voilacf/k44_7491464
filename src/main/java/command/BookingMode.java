@@ -1,5 +1,5 @@
 package command;
 
 public enum BookingMode {
-    AA,PP,AP,PA
+    AA, PP, AP, PA
 }

@@ -3,13 +3,13 @@ package account;
 import memento.AccountMemento;
 
 public class ActiveAccount implements IAccount {
-    String name;
     private final AccountType accountType = AccountType.ACTIVE;
+    String name;
     private Credit soll; //TODO: Soll
     private Debit haben; //TODO: haben
     //private ArrayList<Double> transactions;
 
-    public ActiveAccount(String name, double amount){
+    public ActiveAccount(String name, double amount) {
         this.name = name;
         this.soll = new Credit(amount);
         soll.setType(DebitCreditType.CREDIT);
@@ -18,40 +18,40 @@ public class ActiveAccount implements IAccount {
     }
 
     @Override
-    public AccountMemento save(){
+    public AccountMemento save() {
         return new AccountMemento(name, soll.clone(), haben.clone());
     }
 
     @Override
-    public void restore(AccountMemento memento){
+    public void restore(AccountMemento memento) {
         this.name = memento.getName();
         this.soll = memento.getCredit();
         this.haben = memento.getDebit();
     }
 
-    public Credit getSoll(){
+    public Credit getSoll() {
         return soll;
     }
 
-    public Debit getHaben(){
+    public Debit getHaben() {
         return haben;
     }
 
     //Soll oder Haben?
-    public DebitCreditType getDebitCreditType(IAccountComponent accountComponent){
+    public DebitCreditType getDebitCreditType(IAccountComponent accountComponent) {
         return accountComponent.getAccountComponentType();
     }
 
     //Aktiv oder Passiv?
-    public AccountType getAccountType(){
+    public AccountType getAccountType() {
         return accountType;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 

@@ -1,17 +1,15 @@
 package command;
 
 import account.*;
-import memento.MementoCareTaker;
-import user.Clerk;
 
 public class BookCommand implements ICommand {
-    private IAccount debit;
-    private IAccount credit;
-    private double amount;
+    private final IAccount debit;
+    private final IAccount credit;
+    private final double amount;
 
     //SOLL und HABEN -> Aktiv umgekehrt
     //vom ersten zum zweiten
-    public BookCommand(IAccount debit, IAccount credit, double amount){
+    public BookCommand(IAccount debit, IAccount credit, double amount) {
         this.debit = debit;
         this.credit = credit;
         this.amount = amount;
@@ -20,22 +18,21 @@ public class BookCommand implements ICommand {
 
     //TODO: make a booking --> DEBIT TO CREDIT SOLL zu HABEN
     public void execute() {
-        if(debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.ACTIVE){
+        if (debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.ACTIVE) {
             //ACTIVE ACTIVE -> credit to debit
             debit.getHaben().add(amount);
             credit.getSoll().add(amount);
-        }else if(debit.getAccountType() == AccountType.PASSIVE && credit.getAccountType() == AccountType.PASSIVE){
+        } else if (debit.getAccountType() == AccountType.PASSIVE && credit.getAccountType() == AccountType.PASSIVE) {
             //PASSIVE PASSIVE -> debit to credit
             debit.getSoll().add(amount);
             credit.getHaben().add(amount);
-        }else if(debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.PASSIVE){
+        } else if (debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.PASSIVE) {
             debit.getHaben().add(amount);
             credit.getHaben().add(amount);
-        }else if(debit.getAccountType() == AccountType.PASSIVE && credit.getAccountType() == AccountType.ACTIVE){
+        } else if (debit.getAccountType() == AccountType.PASSIVE && credit.getAccountType() == AccountType.ACTIVE) {
             debit.getSoll().add(amount);
             credit.getSoll().add(amount);
-        }
-        else{
+        } else {
             throw new RuntimeException("Error");
         }
 

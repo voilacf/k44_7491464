@@ -6,15 +6,15 @@ import command.ViewCommand;
 import java.time.LocalDateTime;
 
 public class ChangeReceipt {
-    private int id;
     private static int idCounter;
-    private LocalDateTime timeStamp;
-    private IAccount debitAccount;
-    private IAccount haveAccount;
-    private double amount;
-    private ActionType type;
+    private final int id;
+    private final LocalDateTime timeStamp;
+    private final IAccount debitAccount;
+    private final IAccount haveAccount;
+    private final double amount;
+    private final ActionType type;
 
-    public ChangeReceipt(IAccount debitAccount, IAccount haveAccount, double amount, ActionType type){
+    public ChangeReceipt(IAccount debitAccount, IAccount haveAccount, double amount, ActionType type) {
         this.id = ++idCounter;
         this.timeStamp = LocalDateTime.now();
         this.debitAccount = debitAccount;
@@ -23,7 +23,7 @@ public class ChangeReceipt {
         this.type = type;
     }
 
-    public void printChangeReceipt(){
+    public void printChangeReceipt() {
         System.out.println("----------------- Receipt " + id + " ------------------");
         System.out.println("- a " + type.toString().toLowerCase() + " of " + amount + " haas been executed -");
         ICommand command = new ViewCommand(debitAccount);
