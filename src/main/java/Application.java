@@ -84,6 +84,7 @@ public class Application {
         proxy.view(passive1);
         proxy.view(passive2);
         proxy.view(passive3);
+        //proxy.create("Test",AccountType.ACTIVE,200);
 
         /*proxy.login("TestViewer", "3269544");
         proxy.view(active1);
@@ -91,6 +92,8 @@ public class Application {
 
         proxy.login("TestAdmin", "test123");
         proxy.viewChangeLog();
+
+        proxy.login("TestClerk", "123456");
     }
 
     public void init() {

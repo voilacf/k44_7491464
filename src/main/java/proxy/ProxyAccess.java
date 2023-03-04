@@ -52,7 +52,8 @@ public class ProxyAccess implements IAccess {
         if (currentUserRole == Role.ADMINISTRATOR) {
             realAccess.create(name, type, initialBalance);
         } else {
-            System.out.println("You do not have permission to create an account");
+            //System.out.println("You do not have permission to create an account");
+            throw new RuntimeException("You do not have permission to create an account");
         }
     }
 
@@ -61,7 +62,8 @@ public class ProxyAccess implements IAccess {
         if (currentUserRole == Role.CLERK) {
             realAccess.book(credit, debit, amount);
         } else {
-            System.out.println("You do not have permission to create a booking");
+            //System.out.println("You do not have permission to create a booking");
+            throw new RuntimeException("You do not have permission to create a booking");
         }
     }
 
@@ -70,7 +72,8 @@ public class ProxyAccess implements IAccess {
         if (currentUserRole == Role.CLERK) {
             realAccess.undo();
         } else {
-            System.out.println("You do not have permission to undo last action");
+            //System.out.println("You do not have permission to undo last action");
+            throw new RuntimeException("You do not have permission to undo last action");
         }
     }
 
@@ -79,7 +82,8 @@ public class ProxyAccess implements IAccess {
         if (currentUserRole == Role.CLERK || currentUserRole == Role.VIEWER) {
             realAccess.view(account);
         } else {
-            System.out.println("You do not have permission to view an account");
+            //System.out.println("You do not have permission to view an account");
+            throw new RuntimeException("You do not have permission to view an account");
         }
     }
 
@@ -88,7 +92,8 @@ public class ProxyAccess implements IAccess {
         if (currentUserRole == Role.ADMINISTRATOR) {
             realAccess.viewChangeLog();
         } else {
-            System.out.println("You do not have permission to view changelog");
+            //System.out.println("You do not have permission to view changelog");
+            throw new RuntimeException("You do not have permission to view changelog");
         }
     }
 }

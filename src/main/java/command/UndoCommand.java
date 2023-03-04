@@ -6,6 +6,7 @@ import account.FinancialAccounting;
 import account.IAccount;
 import memento.AccountMemento;
 import memento.MementoCareTaker;
+import proxy.RealAccess;
 
 public class UndoCommand implements ICommand {
 
@@ -18,7 +19,7 @@ public class UndoCommand implements ICommand {
         IAccount src = FinancialAccounting.getAccount(srcMemento.getName());
         IAccount dest = FinancialAccounting.getAccount(destMemento.getName());
 
-        double amount = Math.abs(src.getHaben().getBalance() - srcMemento.getCredit().getBalance());
+        double amount = RealAccess.getAmount();
 
         src.restore(srcMemento);
         dest.restore(destMemento);
