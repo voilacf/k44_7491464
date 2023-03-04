@@ -1,6 +1,6 @@
 # TODOS:
 
-- memento = PAIN
-- command pattern (=pain)
-- proxy (send help)
-- Tests???? (kill me please)
+- Tests for each design pattern
+- go over vpp diagram 
+- include diagram 
+- add some useful comments?
