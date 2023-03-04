@@ -2,7 +2,6 @@ package command;
 
 import account.ChangeReceipt;
 import account.FinancialAccounting;
-import command.ICommand;
 
 public class ViewChangeLogCommand implements ICommand {
     //Anzeige Änderungsprotokoll

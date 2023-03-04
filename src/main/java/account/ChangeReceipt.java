@@ -24,12 +24,13 @@ public class ChangeReceipt {
     }
 
     public void printChangeReceipt(){
-        System.out.println("-------------- Receipt " + id + " ---------------");
+        System.out.println("----------------- Receipt " + id + " ------------------");
+        System.out.println("- a " + type.toString().toLowerCase() + " of " + amount + " haas been executed -");
         ICommand command = new ViewCommand(debitAccount);
         command.execute();
         command = new ViewCommand(haveAccount);
         command.execute();
         System.out.println("Date and Time " + timeStamp);
-        System.out.println("----------------------------------------\n");
+        System.out.println("----------------------------------------------\n");
     }
 }
