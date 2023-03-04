@@ -1,0 +1,6 @@
+bin
+build
+jar
+.gradle
+.idea
+.vim

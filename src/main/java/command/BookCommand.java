@@ -39,10 +39,5 @@ public class BookCommand implements ICommand {
         FinancialAccounting.addReceipt(new ChangeReceipt(debit, credit, amount, ActionType.BOOKING));
     } //TODO: save changes -> load to memento
 
-    /*private IAccount[] book(IAccount debit, IAccount credit){
-        debit.getSoll().add(amount);
-        credit.getHaben().add(amount);
-        return null;
-    }*/
 }
 
