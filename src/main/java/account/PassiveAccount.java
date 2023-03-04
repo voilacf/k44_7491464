@@ -11,9 +11,7 @@ public class PassiveAccount implements IAccount {
     public PassiveAccount(String name, double initialBalance) {
         this.name = name;
         this.haben = new Credit(initialBalance);
-        haben.setType(DebitCreditType.CREDIT);
         this.soll = new Debit();
-        soll.setType(DebitCreditType.DEBIT);
     }
 
     public AccountMemento save() {
@@ -27,7 +25,6 @@ public class PassiveAccount implements IAccount {
         this.haben = memento.getCredit();
     }
 
-
     //TODO: change to credit debit
     public Debit getSoll() {
         return soll;
@@ -35,11 +32,6 @@ public class PassiveAccount implements IAccount {
 
     public Credit getHaben() {
         return haben;
-    }
-
-    //Soll oder Haben?
-    public DebitCreditType getDebitCreditType(IAccountComponent accountComponent) {
-        return accountComponent.getAccountComponentType();
     }
 
     //Aktiv oder Passiv?

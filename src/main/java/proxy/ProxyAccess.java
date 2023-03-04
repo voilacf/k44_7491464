@@ -2,6 +2,7 @@ package proxy;
 
 import account.AccountType;
 import account.IAccount;
+import command.LoginCommand;
 import user.Role;
 import user.User;
 
@@ -10,12 +11,20 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class ProxyAccess implements IAccess {
-    private final ArrayList<User> users = new ArrayList<>();
+    private static final ArrayList<User> users = new ArrayList<>();
     private final RealAccess realAccess;
-    private Role currentUserRole = null;
+    private static Role currentUserRole = null;
 
     public ProxyAccess(RealAccess realAccess) {
         this.realAccess = realAccess;
+    }
+
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public static void setCurrentUserRole(Role currentUserRole) {
+        ProxyAccess.currentUserRole = currentUserRole;
     }
 
     public static String md5(String password) {
@@ -35,19 +44,7 @@ public class ProxyAccess implements IAccess {
     }
 
     public void login(String username, String password) {
-        Role newRole = null;
-
-        for (User user : users) {
-            if (user.getName().equals(username)) {
-                if (user.getEncryptedPassword().equals(md5(password))) {
-                    newRole = user.getRole();
-                } else {
-                    System.out.println("Cannot login as " + username + " because of wrong password");
-                }
-            }
-        }
-
-        this.currentUserRole = newRole;
+        new LoginCommand(username,password).execute();
     }
 
     @Override

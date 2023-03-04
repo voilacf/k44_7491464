@@ -3,7 +3,6 @@ package account;
 import java.util.ArrayList;
 
 public interface IAccountComponent {
-    DebitCreditType getAccountComponentType();
 
     void add(double amount);
 

@@ -19,7 +19,6 @@ public class CreateAccountCommand implements ICommand {
         return account;
     }
 
-    //TODO: fix account, viewer, clerk and admin issue
     //TODO: save account -> mement
     public void execute() {
         if (AccountType.ACTIVE == type) {

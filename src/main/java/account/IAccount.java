@@ -3,7 +3,6 @@ package account;
 import memento.AccountMemento;
 
 public interface IAccount {
-    DebitCreditType getDebitCreditType(IAccountComponent accountComponent);
 
     AccountType getAccountType();
 

@@ -3,9 +3,8 @@ package account;
 import java.util.ArrayList;
 
 public class Credit implements IAccountComponent {
-    private final double openingBalance; //TODO: final?
-    private final ArrayList<Double> increases; //TODO: is this useful?
-    private DebitCreditType type;
+    private final double openingBalance;
+    private final ArrayList<Double> increases;
 
     public Credit(double openingBalance) {
         this.openingBalance = openingBalance;
@@ -18,7 +17,6 @@ public class Credit implements IAccountComponent {
 
     public void add(double amount) {
         increases.add(amount);
-        //System.out.println("The " + type.toString().toLowerCase() + " has been increased by " + amount);
     }
 
     public double getBalance() {
@@ -33,17 +31,9 @@ public class Credit implements IAccountComponent {
         return increases;
     }
 
-    public void setType(DebitCreditType type) {
-        this.type = type;
-    }
-
-    public DebitCreditType getAccountComponentType() {
-        return type;
-    }
 
     public Credit clone() {
         Credit clone = new Credit(openingBalance);
-        clone.setType(type);
         for (int i = 0; i < increases.size(); i++) {
             clone.add(increases.get(i));
         }
