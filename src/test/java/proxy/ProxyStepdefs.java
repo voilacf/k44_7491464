@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProxyStepdefs {
     private final Administrator admin = new Administrator("TestAdmin", ProxyAccess.md5("test123"));
     private final Clerk clerk = new Clerk("TestClerk", ProxyAccess.md5("123456"));
-    private final Viewer viewer = new Viewer("TestViewer",ProxyAccess.md5("376198"));
+    private final Viewer viewer = new Viewer("TestViewer", ProxyAccess.md5("376198"));
     private ProxyAccess proxy;
 
     @Given("A proxy")
@@ -27,33 +27,33 @@ public class ProxyStepdefs {
 
     @When("An Admin logs in")
     public void adminLogsIn() {
-        proxy.login("TestAdmin","test123");
+        proxy.login("TestAdmin", "test123");
     }
 
     @Then("The user can create a new account")
     public void userCanCreateNewAccount() {
-        proxy.create("test",AccountType.ACTIVE,2000);
+        proxy.create("test", AccountType.ACTIVE, 2000);
         assertNotNull(FinancialAccounting.getAccount("test"));
     }
 
     @Then("The user cannot create a new account")
     public void userCannotCreateNewAccount() {
-        try{
-            proxy.create("test",AccountType.ACTIVE,2000);
-        } catch (RuntimeException e){
+        try {
+            proxy.create("test", AccountType.ACTIVE, 2000);
+        } catch (RuntimeException e) {
             String message = "You do not have permission to create an account";
-            assertEquals(message,e.getMessage());
+            assertEquals(message, e.getMessage());
         }
     }
 
     @When("A Clerk logs in")
     public void clerkLogsIn() {
-        proxy.login("TestClerk","123456");
+        proxy.login("TestClerk", "123456");
     }
 
     @When("A Viewer logs in")
     public void viewerLogsIn() {
-        proxy.login("TestViewer","376198");
+        proxy.login("TestViewer", "376198");
     }
 
     @Given("A proxy and an account")
@@ -62,13 +62,13 @@ public class ProxyStepdefs {
         proxy.registerUser(admin);
         proxy.registerUser(clerk);
         proxy.registerUser(viewer);
-        proxy.login("TestAdmin","test123");
-        proxy.create("Active",AccountType.ACTIVE,3000);
+        proxy.login("TestAdmin", "test123");
+        proxy.create("Active", AccountType.ACTIVE, 3000);
     }
 
     @Then("The user can view the account")
     public void userCanViewAccount() {
-        try{
+        try {
             proxy.view(FinancialAccounting.getAccount("Active"));
         } catch (RuntimeException e) {
             assertNull(e);
@@ -77,11 +77,11 @@ public class ProxyStepdefs {
 
     @Then("The user cannot view the account")
     public void userCannotViewAccount() {
-        try{
+        try {
             proxy.view(FinancialAccounting.getAccount("Active"));
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             String message = "You do not have permission to view an account";
-            assertEquals(message,e.getMessage());
+            assertEquals(message, e.getMessage());
         }
     }
 
@@ -91,18 +91,18 @@ public class ProxyStepdefs {
         proxy.registerUser(admin);
         proxy.registerUser(clerk);
         proxy.registerUser(viewer);
-        proxy.login("TestAdmin","test123");
-        proxy.create("active",AccountType.ACTIVE,3000);
-        proxy.create("passive",AccountType.PASSIVE,1000);
+        proxy.login("TestAdmin", "test123");
+        proxy.create("active", AccountType.ACTIVE, 3000);
+        proxy.create("passive", AccountType.PASSIVE, 1000);
     }
 
     @Then("The user cannot do a booking")
     public void userCannotDoBooking() {
         String message = "You do not have permission to create a booking";
-        try{
-            proxy.book(FinancialAccounting.getAccount("active"), FinancialAccounting.getAccount("passive"),2000);
-        } catch (RuntimeException e){
-            assertEquals(message,e.getMessage());
+        try {
+            proxy.book(FinancialAccounting.getAccount("active"), FinancialAccounting.getAccount("passive"), 2000);
+        } catch (RuntimeException e) {
+            assertEquals(message, e.getMessage());
         }
     }
 
@@ -134,10 +134,10 @@ public class ProxyStepdefs {
     @Then("The user cannot undo the last action")
     public void userCannotUndoLastAction() {
         String message = "You do not have permission to undo last action";
-        try{
+        try {
             proxy.undo();
-        } catch (RuntimeException e){
-            assertEquals(message,e.getMessage());
+        } catch (RuntimeException e) {
+            assertEquals(message, e.getMessage());
         }
     }
 
@@ -153,10 +153,10 @@ public class ProxyStepdefs {
     @Then("The user cannot view the change-log")
     public void userCannotViewChangeLog() {
         String message = "You do not have permission to view changelog";
-        try{
+        try {
             proxy.viewChangeLog();
-        } catch (RuntimeException e){
-            assertEquals(message,e.getMessage());
+        } catch (RuntimeException e) {
+            assertEquals(message, e.getMessage());
         }
     }
 }
