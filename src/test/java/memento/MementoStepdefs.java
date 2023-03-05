@@ -65,5 +65,6 @@ public class MementoStepdefs {
         assertTrue(FinancialAccounting.getAccount("active").getSoll().getBalance() == FinancialAccounting.getAccount("active2").getSoll().getBalance());
         assertTrue(FinancialAccounting.getAccount("passive").getHaben().getBalance() == FinancialAccounting.getAccount("passive2").getHaben().getBalance());
         assertTrue(FinancialAccounting.getAccount("passive").getSoll().getBalance() == FinancialAccounting.getAccount("passive2").getSoll().getBalance());
+        System.out.println("#likeabosch");
     }
 }

@@ -158,5 +158,6 @@ public class ProxyStepdefs {
         } catch (RuntimeException e) {
             assertEquals(message, e.getMessage());
         }
+        System.out.println("#likeabosch");
     }
 }
