@@ -31,7 +31,6 @@ public class ViewCommand implements ICommand {
             credit = account.getHaben().getContent();
             debit = account.getSoll().getContent();
         }
-        //TODO: DONE?
         if (debit.size() < credit.size()) {
             size = credit.size();
             int extranulls = size - debit.size();

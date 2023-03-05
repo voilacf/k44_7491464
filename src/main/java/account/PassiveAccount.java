@@ -5,8 +5,8 @@ import memento.AccountMemento;
 public class PassiveAccount implements IAccount {
     private final AccountType accountType = AccountType.PASSIVE;
     String name;
-    private Debit soll; //TODO: SOLL
-    private Credit haben; //TODO: HABEN
+    private Debit soll;
+    private Credit haben;
 
     public PassiveAccount(String name, double initialBalance) {
         this.name = name;

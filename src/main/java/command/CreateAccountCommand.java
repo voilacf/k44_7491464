@@ -19,7 +19,6 @@ public class CreateAccountCommand implements ICommand {
         return account;
     }
 
-    //TODO: save account -> mement
     public void execute() {
         if (AccountType.ACTIVE == type) {
             account = new ActiveAccount(name, initialBalance);

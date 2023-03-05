@@ -5,8 +5,8 @@ import memento.AccountMemento;
 public class ActiveAccount implements IAccount {
     private final AccountType accountType = AccountType.ACTIVE;
     String name;
-    private Credit soll; //TODO: Soll
-    private Debit haben; //TODO: haben
+    private Credit soll;
+    private Debit haben;
 
     public ActiveAccount(String name, double amount) {
         this.name = name;

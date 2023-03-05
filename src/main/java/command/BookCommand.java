@@ -7,16 +7,13 @@ public class BookCommand implements ICommand {
     private final IAccount credit;
     private final double amount;
 
-    //SOLL und HABEN -> Aktiv umgekehrt
-    //vom ersten zum zweiten
+    //vom ersten zum zweiten --> soll an haben
     public BookCommand(IAccount debit, IAccount credit, double amount) {
         this.debit = debit;
         this.credit = credit;
         this.amount = amount;
     }
-    //Mit HashMap arbeiten?
 
-    //TODO: make a booking --> DEBIT TO CREDIT SOLL zu HABEN
     public void execute() {
         if (debit.getAccountType() == AccountType.ACTIVE && credit.getAccountType() == AccountType.ACTIVE) {
             //ACTIVE ACTIVE -> credit to debit
@@ -35,9 +32,8 @@ public class BookCommand implements ICommand {
         } else {
             throw new RuntimeException("Error");
         }
-
         FinancialAccounting.addReceipt(new ChangeReceipt(debit, credit, amount, ActionType.BOOKING));
-    } //TODO: save changes -> load to memento
+    }
 
 }
 
