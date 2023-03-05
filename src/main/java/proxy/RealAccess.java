@@ -6,8 +6,8 @@ import command.*;
 import memento.MementoCareTaker;
 
 public class RealAccess implements IAccess {
-    private ICommand command;
     private static double amount;
+    private ICommand command;
 
     public static double getAmount() {
         return amount;
@@ -20,7 +20,7 @@ public class RealAccess implements IAccess {
 
     @Override
     public void book(IAccount debit, IAccount credit, double amount) {
-        this.amount = amount;
+        RealAccess.amount = amount;
         MementoCareTaker.setMementoActiveSrc(credit.save());
         MementoCareTaker.setMementoPassiveDest(debit.save());
         System.out.println("\n----------memento has been set----------\n");

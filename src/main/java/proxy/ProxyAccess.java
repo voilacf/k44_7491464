@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class ProxyAccess implements IAccess {
     private static final ArrayList<User> users = new ArrayList<>();
-    private final RealAccess realAccess;
     private static Role currentUserRole = null;
+    private final RealAccess realAccess;
 
     public ProxyAccess(RealAccess realAccess) {
         this.realAccess = realAccess;
@@ -44,7 +44,7 @@ public class ProxyAccess implements IAccess {
     }
 
     public void login(String username, String password) {
-        new LoginCommand(username,password).execute();
+        new LoginCommand(username, password).execute();
     }
 
     @Override
