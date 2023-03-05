@@ -1,9 +1,10 @@
-
 import account.AccountType;
 import account.FinancialAccounting;
 import account.IAccount;
 import memento.MementoCareTaker;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import proxy.ProxyAccess;
 import proxy.RealAccess;
 import user.Administrator;
@@ -11,12 +12,11 @@ import user.Clerk;
 import user.Viewer;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestManagement {
     private final Administrator admin = new Administrator("TestAdmin", ProxyAccess.md5("test123"));
     private final Clerk clerk = new Clerk("TestClerk", ProxyAccess.md5("123456"));
-    private final Viewer viewer = new Viewer("TestViewer",ProxyAccess.md5("1234"));
+    private final Viewer viewer = new Viewer("TestViewer", ProxyAccess.md5("1234"));
     private final ProxyAccess proxy = new ProxyAccess(new RealAccess());
 
     @BeforeEach
