@@ -3,7 +3,6 @@ package command;
 import account.*;
 
 public class CreateAccountCommand implements ICommand {
-    //TODO: rename class in diagram.vpp
     private final String name;
     private final AccountType type;
     private final double initialBalance;

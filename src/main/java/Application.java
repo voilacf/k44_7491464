@@ -33,8 +33,6 @@ public class Application {
         IAccount active2 = FinancialAccounting.getAccount("Aktiv2");
         IAccount active3 = FinancialAccounting.getAccount("Aktiv3");
 
-        /*double i = active1.getSoll().getOpeningBalance();
-        System.out.println(i);*/
         proxy.login("TestViewer", "3269544");
         proxy.view(passive1);
         proxy.view(passive2);

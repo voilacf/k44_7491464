@@ -5,33 +5,33 @@ import memento.AccountMemento;
 public class ActiveAccount implements IAccount {
     private final AccountType accountType = AccountType.ACTIVE;
     String name;
-    private Credit soll;
-    private Debit haben;
+    private Credit debit;
+    private Debit credit;
 
     public ActiveAccount(String name, double amount) {
         this.name = name;
-        this.soll = new Credit(amount);
-        this.haben = new Debit();
+        this.debit = new Credit(amount);
+        this.credit = new Debit();
     }
 
     @Override
     public AccountMemento save() {
-        return new AccountMemento(name, soll.clone(), haben.clone());
+        return new AccountMemento(name, debit.clone(), credit.clone());
     }
 
     @Override
     public void restore(AccountMemento memento) {
         this.name = memento.getName();
-        this.soll = memento.getCredit();
-        this.haben = memento.getDebit();
+        this.debit = memento.getCredit();
+        this.credit = memento.getDebit();
     }
 
     public Credit getSoll() {
-        return soll;
+        return debit;
     }
 
     public Debit getHaben() {
-        return haben;
+        return credit;
     }
 
     //Aktiv oder Passiv?

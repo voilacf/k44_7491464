@@ -25,7 +25,6 @@ public class PassiveAccount implements IAccount {
         this.haben = memento.getCredit();
     }
 
-    //TODO: change to credit debit
     public Debit getSoll() {
         return soll;
     }
