@@ -1,44 +1,36 @@
 Feature: command
 
   Scenario: Test login command
-    Given A proxy and a user
-    When The user is an Admin
-    Then The user can create a new account
-    When The user is either a Clerk or a Viewer
-    Then The user cannot create a new account
+    Given An Admin
+    Then The user enters wrong login data and cannot log in
+    Given An Admin
+    Then The admin enters the correct login data and can log in
+    Given A Clerk
+    Then The admin enters the correct login data and can log in
+    Given A Clerk
+    Then The user enters wrong login data and cannot log in
+    Given A Viewer
+    Then The user enters wrong login data and cannot log in
+    Given A Viewer
+    Then The admin enters the correct login data and can log in
 
   Scenario: Test create command
-    Given A proxy and a user
-    When The user is an Admin
-    Then The user can create a new account
-    When The user is either a Clerk or a Viewer
-    Then The user cannot create a new account
+    Given An Admin logs in to proxy
+    When Admin creates new account
+    Then A new account has been created with the initial data given by the admin
 
-  Scenario: Test view command
-    Given A proxy, a user and an account
-    When The user is an Admin
-    Then The user cannot view the account
-    When The user is either a Clerk or a Viewer
-    Then The user can view the account
+    #wird schon in proxy getestet
+  #Scenario: Test view command
 
   Scenario: Test book command
-    Given A proxy, a user and two accounts
-    When The user is either an Admin or a Viewer
-    Then The user cannot do a booking
-    When The user is a Clerk
-    Then The user can do a booking
+    Given Eight accounts
+    When Clerk logs in and is doing four bookings
+    Then The accounts have changed correctly
+      #soll an haben
 
-  Scenario: Test undo command
-    Given A proxy and a user
-    When The user is either an Admin or a Viewer
-    Then The user cannot undo the last action
-    When The user is a Clerk
-    Then The user can undo the last action
+    #wird schon in memento getestet
+  #Scenario: Test undo command
 
-  Scenario: Test view change-log command
-    Given A proxy and a user
-    When The user is either a Clerk or a Viewer
-    Then The user cannot view the change-log
-    When The user is an Admin
-    Then The user can view the change-log
+    #wird schon in proxy getestet
+  #Scenario: Test view change-log command
 

@@ -22,6 +22,7 @@ public class LoginCommand implements ICommand {
                     newRole = user.getRole();
                 } else {
                     System.out.println("Cannot login as " + username + " because of wrong password");
+                    throw new RuntimeException("Cannot log in");
                 }
             }
         }
